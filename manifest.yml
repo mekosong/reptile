@@ -1,0 +1,11 @@
+---     #三个中线表示开始
+
+#注释部分，使用#开始
+
+applications:    #应用开始
+
+- name: first-pro        #一个应用，指定名子并以一个中线开始
+
+command: node www #启动应用命令
+
+memory: 512M

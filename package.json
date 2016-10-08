@@ -1,0 +1,27 @@
+{
+  "name": "checkWork",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Meko",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.1",
+    "body-parser": "~1.15.1",
+    "connect-redis": "^3.1.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "ejs": "^2.4.2",
+    "express": "~4.13.4",
+    "express-session": "^1.14.0",
+    "lodash": "^4.13.1",
+    "mongoose": "^4.5.5",
+    "morgan": "~1.7.0",
+    "node-xlsx": "^0.7.2"
+  },
+   "engines": {
+    "node": "6.4.0",
+    "npm": "3.10.7"
+  }
+}

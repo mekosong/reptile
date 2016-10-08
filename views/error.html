@@ -1,0 +1,176 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<body>-->
+    <!--<h1> i am a error html! </h1>-->
+    <!--<h2>"<%-message%>"</h2>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="page-view-size" content="1280*720">
+    <title>温馨提示</title>
+
+    <script type="application/javascript" src="../js/global.js"></script>
+    <script>
+        var BACK_URL = "/getHealthHome";
+        var focusArea = 2;   //0 栏目焦点  1 上下页  2 footer
+        var footPos = 0;    //首页返回焦点
+        var pagePos = 0;
+
+        document.onkeydown = grabEvent;
+        document.onirkeypress = grabEvent;
+        document.onsystemevent = grabEvent;
+        function grabEvent(){
+            var key_code = event.which;
+            switch(key_code){
+                case 1: //up
+                case 38:
+                case 28:
+                case 269:
+                    //   udMove(-1);
+                    return false;
+                    break;
+                case 2: //down
+                case 40:
+                case 31:
+                case 270:
+                    //  udMove(1);
+                    return false;
+                    break;
+                case 3: //left
+                case 37:
+                case 29:
+                case 271:
+                    lrMove(-1);
+                    return false;
+                    break;
+                case 4: //right
+                case 39:
+                case 30:
+                case 272:
+                    lrMove(1);
+                    return false;
+                    break;
+                case 13:
+                    doSelect();
+                    return false;
+                    break;
+                case 8:   //返回
+                case 45:
+                case 283:
+                case 340:
+                case 27:   //菜单
+                case 339:
+                    window.location.href="#";
+                    return false;
+                    break;
+            }
+        }
+        function doSelect(){
+            if(focusArea == 1){ //page
+                if(pagePos == 0){ //big
+                    zoomBig();
+                }else{
+                    zoomSmall();
+                }
+            }else if(focusArea ==2){
+                if(footPos == 0){
+                    doMenu();
+                }else{
+                    doBack();
+                }
+            }
+        }
+        function doBack(){
+            window.location.href = BACK_URL;
+        }
+        function doMenu(){
+            iPanel.mainFrame.location.href = iPanel.eventFrame.portal_url;
+        }
+        function lrMove(_num) {
+            if(focusArea == 0){
+            }else if(focusArea == 1){
+                if(_num < 0){
+                    if(pagePos == 0){
+                        return;
+                    }else{
+                        losePageFocus();
+                        pagePos--;
+                        getPageFocus();
+                    }
+                }else{
+                    if(pagePos == 1){
+                        return;
+                    }else{
+                        losePageFocus();
+                        pagePos++;
+                        getPageFocus();
+                    }
+                }
+            }else if(focusArea == 2){
+                if(_num < 0){//left
+                    if(footPos == 0){
+                        return;
+                    }else{
+                        loseFootFocus();
+                        footPos--;
+                        getFootFocus();
+                    }
+                }else{
+                    if(footPos == 1){
+                        return;
+                    }else{
+                        loseFootFocus();
+                        footPos++;
+                        getFootFocus();
+                    }
+                }
+            }
+        }
+
+
+
+        function init(){
+            //showList();
+            switch(focusArea){
+                case 0:
+                    //  getFocus();
+                    break;
+                case 1:
+                    getPageFocus();
+                    break;
+                case 2:
+                    getFootFocus();
+                    break;
+            }
+
+        }
+
+        function changeFootFocus(_num){
+            loseFootFocus();
+            footPos = (footPos + _num+2)%2;
+            getFootFocus();
+        }
+        function getFootFocus(){
+            $("footBtn" + footPos).src = "../image/btn1"+footPos+".png";
+        }
+
+        function loseFootFocus(){
+            $("footBtn" + footPos).src = "../image/btn0"+footPos+".png";
+        }
+    </script>
+</head>
+<body background="../image/bg.png" topmargin="0" bottommargin="0"
+      onLoad="init();">
+
+<div style="position:absolute;color:#ffffff;font-size:20px;left:500px;top:100px;">【温馨提示】没有详细信息</div>
+<div style="position:absolute; top:150px;left:400px;">
+    <img src="../image/err.png" alt="" width="450" height="450" />
+</div>
+<div style="position:absolute; top:634px; left:910px; width:130px; height:47px;" ><img id="footBtn0" src="../image/btn00.png"  width="130" height="47" /></div>
+<div style="position:absolute; top:634px; left:1051px; width:130px; height:47px;" ><img id="footBtn1"  src="../image/btn01.png" width="130" height="47" /></div>
+</body>
+</html>
