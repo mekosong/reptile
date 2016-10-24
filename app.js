@@ -10,8 +10,6 @@ var routes = require('./server/routes/index');
 
 var app = express();
 
-
-//process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 //开放跨域请求
 app.use(function (req, res, next) {
   res.header('content-type: application/json; charset=utf-8');
@@ -34,8 +32,7 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-
+app.use(routes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -46,7 +43,6 @@ app.use(function (req, res, next) {
 
 // error handlers
 app.use(function (err, req, res, next) {
-  console.error(err);
   res.status(err.status || 500);
   res.send({
     message: err.message,

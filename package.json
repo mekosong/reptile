@@ -1,27 +1,52 @@
 {
-  "name": "checkWork",
+  "name": "novelReptile",
   "version": "0.1.0",
   "private": true,
   "author": "Meko",
   "scripts": {
+    "start2": "webpack-dev-server --inline",
+    "webpack": "node ./node_modules/webpack/bin/webpack",
     "start": "node ./bin/www"
   },
   "dependencies": {
     "bluebird": "^3.4.1",
     "body-parser": "~1.15.1",
-    "connect-redis": "^3.1.0",
+    "cheerio": "^0.22.0",
     "cookie-parser": "~1.4.3",
-    "debug": "~2.2.0",
+    "crawler": "^0.4.3",
     "ejs": "^2.4.2",
     "express": "~4.13.4",
     "express-session": "^1.14.0",
-    "lodash": "^4.13.1",
-    "mongoose": "^4.5.5",
+    "jsdom": "^9.6.0",
     "morgan": "~1.7.0",
-    "node-xlsx": "^0.7.2"
+    "request": "^2.75.0",
+    "vue": "^2.0.3"
   },
-   "engines": {
+  "engines": {
     "node": "6.4.0",
     "npm": "3.10.7"
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "^2.0.0",
+    "babel": "^6.3.13",
+    "babel-core": "^6.3.21",
+    "babel-loader": "^6.2.0",
+    "babel-plugin-transform-runtime": "^6.3.13",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-runtime": "^5.8.34",
+    "css-loader": "^0.16.0",
+    "file-loader": "^0.8.5",
+    "gulp": "^3.9.1",
+    "gulp-webpack": "^1.5.0",
+    "html-loader": "^0.3.0",
+    "node-sass": "^3.4.2",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.12.3",
+    "url-loader": "^0.5.6",
+    "vinyl-named": "^1.1.0",
+    "vue-html-loader": "^1.2.0",
+    "vue-loader": "^7.2.0",
+    "webpack": "^1.12.0",
+    "webpack-dev-server": "^1.14.0"
   }
 }
